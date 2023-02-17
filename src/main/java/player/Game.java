@@ -1,19 +1,20 @@
 package player;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+
 
 public class Game {
-    private List<Player> players = new ArrayList<Player>();
+
+    HashMap<Player, Integer> players = new HashMap<>();
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player, 0);
     }
 
     public int round(String playerName1, String playerName2) {
         Player player1 = null;
         Player player2 = null;
-        for (Player player : players) {
+        for (Player player : players.keySet()) {
             if (player.getName().equals(playerName1)) {
                 player1 = player;
             }
